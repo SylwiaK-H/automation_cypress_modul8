@@ -5,9 +5,8 @@ import { faker } from '@faker-js/faker';
 
 
 describe('my first scenario', () => {
-
-    const homePage = new HomePage
-    const accountPage = new AccountPage()
+    const homePage = new HomePage();
+    const accountPage = new AccountPage();
 
     before(function () {
         cy.fixture('users').as('userData')
