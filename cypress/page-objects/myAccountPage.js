@@ -1,20 +1,20 @@
-import Urls from "./urls";
+import Urls from "./urls"
+
 
 const usernameEmailField = '#username'
-const passwordFeild = '#password'
+const passwordField = '#password'
 const loginButton = 'button[name="login"]'
-const errorMessage = '.woocommerce-error'
 const myAccountNavigation = '.woocommerce-MyAccount-navigation'
 const errorAfterWrongLogin = 'ul[role="alert"]'
 
-class AccountPage {
+class AccountPage{
 
-    fillUsernameFeildWithEmail(email) {
+    fillUsernameFieldWithEmail(email) {
         cy.get(usernameEmailField).type(email)
     }
 
-    fillPasswordFeild(password) {
-        cy.get(passwordFeild).type(password)
+    fillPasswordField(password) {
+        cy.get(passwordField).type(password)
     }
 
     clickLoginButton() {
@@ -25,7 +25,7 @@ class AccountPage {
         cy.get(myAccountNavigation).should('be.visible')
     }
 
-    checkVisibilityOfErrorWrongLogin() {
+    checkVisibilityOfErrorAfterWrongLogin() {
         cy.get(errorAfterWrongLogin).should('be.visible')
     }
 
@@ -36,4 +36,5 @@ class AccountPage {
 
 
 }
+
 export default AccountPage;
