@@ -1,0 +1,13 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@2.2.0
+workflows:
+  build:
+    jobs:
+        - cypress/install
+        - cypress/run:
+             store_artifacts: true  
+             spec: cypress/e2e/TS1.cy.js
+        - cypress/run:
+             store_artifacts: true  
+             spec: cypress/e2e/TS2.cy.js
