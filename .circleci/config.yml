@@ -6,8 +6,11 @@ workflows:
     jobs:
         - cypress/install
         - cypress/run:
-             store_artifacts: true  
-             spec: cypress/e2e/TS1.cy.js
-        - cypress/run:
-             store_artifacts: true  
-             spec: cypress/e2e/TS2.cy.js
+             requires:
+               - cypress/install
+               store_artifacts: true
+               parallel: true
+               parallelism: 3
+               group: 2 machines
+
+
