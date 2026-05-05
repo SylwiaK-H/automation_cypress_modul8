@@ -1,15 +1,28 @@
 version: 2.1
 
 jobs:
-  test:
+  test-ts1:
     docker:
       - image: cimg/node:20.11-browsers
     steps:
       - checkout
       - run: npm install
-      - run: npx cypress run
+      - run:
+          name: Run TS1 tests
+          command: npx cypress run --spec "cypress/e2e/TS1.cy.js"
+
+  test-ts2:
+    docker:
+      - image: cimg/node:20.11-browsers
+    steps:
+      - checkout
+      - run: npm install
+      - run:
+          name: Run TS2 tests
+          command: npx cypress run --spec "cypress/e2e/TS2.cy.js"
 
 workflows:
   test-workflow:
     jobs:
-      - test
+      - test-ts1
+      - test-ts2
